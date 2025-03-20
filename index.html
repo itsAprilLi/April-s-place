@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>home</title>
+    <link rel="stylesheet" href="style.css">
+ 
+
+
+</head>
+<body class="home">
+    <div class="enter-circle" onclick="goToMenu()"> PLEASE ENTER</div>
+ 
+    <script>
+        function goToMenu() {
+            window.location.href = "menu.html";
+        }
+        
+      
+        function createFlower() {
+            const flower = document.createElement("div");
+            flower.classList.add("flower");
+            document.body.appendChild(flower);
+
+
+            flower.style.left = Math.random() * 100 + "vw";
+            flower.style.animationDuration = Math.random() * 3 + 3 + "s"; // 3~6秒随机飘落时间
+            
+
+            setTimeout(() => {
+                flower.remove();
+            }, 6000);
+        }
+
+
+        setInterval(createFlower, 500);
+    </script>
+      <script src="script.js"></script>
+</body>
+</html>
