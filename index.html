@@ -1,47 +1,41 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="zh">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Gdes30008</title>
-    <style>
-        *{
-            margin: 0；
-            padding：0；
-        }
-        body {
-            width: 100vw;
-            height: 100vh;
-            overflow: hidden;
-            font-size: 12px;
-            line-height: 1rem;
-        }
-        header {
-            background-color: hotpink;
-            color: aliceblue;
-            height: 15vh;
-        }
-        .wrapper {
-            width: 100%;
-            display: flex;
-            flex-direction: row;
-        }
-        #menu-col {
-            width: 20vw;
-            background-color: beige;
-        }
-        #content {
-            width: 50%;
-            padding: 15px;
-        }
-    </style>
+    <title>home</title>
+    <link rel="stylesheet" href="style.css">
+ 
+
+
 </head>
-<body>
-   <header> <h1>Gdes30008</h1></header>
-    <div class="wrapper">
-    <div id=
-    >
+<body class="home">
+    <div class="enter-circle" onclick="goToMenu()"> PLEASE ENTER</div>
+ 
+    <script>
+        function goToMenu() {
+            window.location.href = "menu.html";
+        }
+        
+      
+        function createFlower() {
+            const flower = document.createElement("div");
+            flower.classList.add("flower");
+            document.body.appendChild(flower);
 
 
+            flower.style.left = Math.random() * 100 + "vw";
+            flower.style.animationDuration = Math.random() * 3 + 3 + "s"; // 3~6秒随机飘落时间
+            
+
+            setTimeout(() => {
+                flower.remove();
+            }, 6000);
+        }
+
+
+        setInterval(createFlower, 500);
+    </script>
+      <script src="script.js"></script>
 </body>
 </html>

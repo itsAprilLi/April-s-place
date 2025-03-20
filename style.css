@@ -1,0 +1,49 @@
+body.home {
+    background-image: url(images/index_background.JPG);
+    background-size: cover;
+    height: 100%;
+    width:100vw;
+    margin: 0%;
+    display: flex;
+    justify-content: center;
+    align-content: center;
+
+}
+
+
+
+.enter-circle {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    
+    width: 120px;  
+    height: 100px; 
+    background: url(images/bow_button.png) no-repeat center center;
+    background-size: contain;
+    
+    cursor: pointer; 
+}
+
+
+
+
+.flower {
+    position: absolute;
+    font-size: 24px;  
+    opacity: 0.8;
+    animation: fall linear infinite;
+}
+
+
+@keyframes fall {
+    0% {
+        transform: translateY(-10vh) rotate(0deg);
+        opacity: 1;
+    }
+    100% {
+        transform: translateY(100vh) rotate(360deg);
+        opacity: 0;
+    }
+}
