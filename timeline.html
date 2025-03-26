@@ -1,16 +1,258 @@
 <!DOCTYPE html>
-<html lang="zh">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Timeline</title>
-    <link rel="stylesheet" href="style.css">
+    <title>My Timeline</title>
+    <link href="https://fonts.googleapis.com/css2?family=Comic+Neue:wght@700&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="timeline.css">
+
 </head>
-<body class="timeline">
-    <div id="clock">
-        <div id="week-display">Week 1</div>
+
+<body>
+
+
+    <div id="flowers-container"></div>
+    
+    <div id="flowers-container"></div>
+
+    <div class="week-content" id="week1-content">
+      
+        <h1 class="week-title">Week 1: WoT is WWW</h1>
+        <p class="subtitle">Exploring the Building Blocks of the Web</p>
+        <div class="divider"></div>
+    
+       
+        <div class="content-card">
+            <div class="card-header">
+                <span class="section-number">01</span>
+                <h2>What is HTML?</h2>
+            </div>
+            <img src="https://via.placeholder.com/400x250/ffcce6/ffffff?text=HTML+Structure" alt="HTML Structure" class="float-right">
+            <div class="card-content">
+                <p>HTML (HyperText Markup Language) is the skeleton of every webpage. It provides the basic structure and content using a system of tags and elements.</p>
+                <ul class="handwritten-list">
+                    <li>Uses tags like &lt;h1&gt;, &lt;p&gt;, &lt;div&gt; to structure content</li>
+                    <li>The latest version is HTML5 with new semantic elements</li>
+                    <li>Works together with CSS and JavaScript</li>
+                </ul>
+            </div>
+        </div>
+    
+        <!-- 卡片2: CSS -->
+        <div class="content-card">
+            <div class="card-header">
+                <span class="section-number">02</span>
+                <h2>What is CSS?</h2>
+            </div>
+            <img src="https://via.placeholder.com/400x250/e6f7ff/ffffff?text=CSS+Styling" alt="CSS Art" class="float-left">
+            <div class="card-content">
+                <p>CSS (Cascading Style Sheets) makes HTML look beautiful and stylish with colors, layouts, and animations.</p>
+                <div class="code-example">
+                    <pre><code>.fancy-button {
+        background: linear-gradient(45deg, #ffb4d9, #ffd6e7);
+        border-radius: 25px;
+        box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+        transition: all 0.3s ease;
+    }
+    
+    .fancy-button:hover {
+        transform: translateY(-3px);
+        box-shadow: 0 6px 20px rgba(0,0,0,0.15);
+    }</code></pre>
+                </div>
+            </div>
+        </div>
+    
+        <!-- 卡片3: 网站示例 -->
+        <div class="content-card">
+            <div class="card-header">
+                <span class="section-number">03</span>
+                <h2>Fascinating Websites</h2>
+            </div>
+            <div class="card-content">
+                <div class="website-gallery">
+                    <!-- 网站1 -->
+                    <a href="https://bruno-simon.com/" target="_blank" class="website-card">
+                        <div class="website-preview" style="background: url(process_image/coolref1.png);"></div>
+                        <h3>Bruno Simon Portfolio</h3>
+                        <p>An interactive 3D portfolio using WebGL</p>
+                        <span class="highlight">Pushes browser capabilities</span>
+                    </a>
+                    
+                    <!-- 网站2 -->
+                    <a href="https://stellarium-web.org/" target="_blank" class="website-card">
+                        <div class="website-preview" style="background: url(process_image/coolref2.png);"></div>
+                        <h3>Stellarium Web</h3>
+                        <p>Real-time 3D sky map showing stars</p>
+                        <span class="highlight">Beautiful educational tool</span>
+                    </a>
+                    
+                
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <!-- 周导航 (保持不变) -->
+    <div class="week-nav">
+        <button class="week-btn" data-week="week1">Week 1</button>
+        <button class="week-btn" data-week="week2">Week 2</button>
+        <button class="week-btn" data-week="week3">Week 3</button>
+        <button class="week-btn" data-week="week4">Week 4</button>
     </div>
 
-    <script src="script.js"></script>
+    <script>
+  
+    // 飘花效果
+    function createFlower() {
+        const flower = document.createElement('div');
+        flower.className = 'flower';
+        flower.innerHTML = '🌸';
+        
+        flower.style.left = Math.random() * 100 + 'vw';
+        flower.style.fontSize = (Math.random() * 20 + 15) + 'px';
+        flower.style.animationDuration = (Math.random() * 3 + 2) + 's';
+        flower.style.opacity = Math.random() * 0.5 + 0.5;
+        
+        document.getElementById('flowers-container').appendChild(flower);
+        
+        setTimeout(() => {
+            flower.remove();
+        }, 5000);
+    }
+    
+    setInterval(createFlower, 300);
+    
+
+    document.addEventListener("DOMContentLoaded", function() {
+    
+        document.querySelectorAll('.week-content').forEach(content => {
+            content.style.display = 'none';
+        });
+        
+        document.getElementById('week1-content').style.display = 'block';
+        
+
+        document.querySelectorAll('.week-btn').forEach(button => {
+            button.addEventListener('click', function() {
+             
+                document.querySelectorAll('.week-content').forEach(content => {
+                    content.style.display = 'none';
+                });
+                
+               
+                const weekToShow = this.getAttribute('data-week');
+                const weekContent = document.getElementById(`${weekToShow}-content`);
+                if (weekContent) {
+                    weekContent.style.display = 'block';
+                }
+                
+              
+                document.querySelectorAll('.week-btn').forEach(btn => {
+                    btn.style.backgroundColor = '#ff69b4';
+                    btn.style.color = 'white';
+                });
+                this.style.backgroundColor = 'white';
+                this.style.color = '#ff69b4';
+            });
+        });
+    });
+</script>
+    </script>
+
+
+
+<div class="week-content" id="week2-content">
+  
+    <h1 class="week-title">Week 2: Ideas & Super8</h1>
+    
+    
+    <div class="content-card">
+        <img src="images/super8.png" alt="Hand drawing 1" class="hand-drawn-img">
+        <img src="images/super88.png" alt="Hand drawing 2" class="hand-drawn-img">
+    </div>
+    
+ 
+    <div class="content-card">
+        <h2 class="subtitle">Building a Room</h2>
+        <p>I imagined my website as a cute little room! Each section represents a different area:</p>
+        <ul class="handwritten-list">
+            <li>The entrance is the welcome page (with window and cat)</li>
+            <li>The timeline is a calendar on the wall</li>
+            <li>The CSS study area is a dressing table (for "beautifying")</li>
+            <li>The research section is a bookshelf</li>
+        </ul>
+        <p>This design makes the website feel cozier, like entering a little world.</p>
+    </div>
+
+  
+    <div class="content-card">
+        <h2 class="subtitle">Inspiration</h2>
+        <p>I got the flower animation idea from this video:</p>
+        
+
+        <div class="video-container">
+            <video controls>
+                <source src="images/inspirationflower.MOV" type="video/mp4">
+            
+            
+            </video>
+        </div>
+        
+        <p>Then I coded the flower effect in VSCode:</p>
+        <img src="images/processmakingflowers1.png" alt="Flower effect code screenshot" class="code-screenshot">
+        <p>This code makes flowers fall randomly from the top of the screen. </p>
+    </div>
+        
+        <p>Then I coded the flower effect in VSCode:</p>
+        <img src="images/processmakingflowers.png" alt="Flower effect code screenshot" class="code-screenshot">
+        <p>This code makes flowers fall randomly from the top of the screen. </p>
+    </div>
+</div>
+
+<div class="week-content" id="week3-content">
+    
+    <h1 class="week-title">Week 3: How My Website Interacts</h1>
+    
+    <div class="content-card">
+        <h2 class="subtitle">Graphic Interaction</h2>
+        <p>I designed interactive elements to make my website feel more dynamic and engaging.</p>
+        <ul class="handwritten-list">
+            <li>The window on the homepage opens when the mouse hovers over it.</li>
+            <li>The small cat interacts with visitors by moving and reacting to clicks.</li>
+        </ul>
+        </div>
+        
+        <div class="gif-container">
+            <img src="images/catsleep.GIF" alt="Interaction GIF 1">
+            <img src="images/catwakeup.GIF" alt="Interaction GIF 2">
+            <img src="images/windowopen.GIF" alt="Interaction GIF 3">
+        </div>
+        
+    </div>
+    
+    <div class="content-card">
+        <h2 class="subtitle">Enhancing Aesthetics</h2>
+        <p>To make my website visually appealing, I explored various fonts and styles.</p>
+        <p>I browsed different fonts and selected ones that matched my cozy theme.</p>
+        <p>Here are some screenshots of the process:</p>
+        <img src="process_image/findtypeface.png" alt="Browsing fonts" class="code-screenshot">
+        <img src="process_image/xiazaitype.png" alt="Applied fonts on the website" class="code-screenshot">
+    </div>
+    
+    <div class="content-card">
+        <h2 class="subtitle">Use of AI</h2>
+        <p>I used Leonardo AI to generate images for my website.</p>
+        <p>It helped me create visuals that aligned with my aesthetic vision.</p>
+        <p>Here are some images I generated:</p>
+        <img src="process_image/useofai.png" alt="AI-generated image 1" class="code-screenshot">
+        <img src="process_image/useofai2.jpg" alt="AI-generated image 2" class="code-screenshot">
+    </div>
+</div>
+
 </body>
 </html>
+
+
