@@ -1,24 +1,55 @@
 <!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Room</title>
+    <link href="https://fonts.googleapis.com/css2?family=Comic+Neue:wght@700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="room-container">
+        <!-- 背景保持原有样式 -->
+        <div class="background"></div>
+        
+        <!-- 日历（正中间偏上） -->
+        <div class="item calendar" id="calendar">
+            <img src="images/calender.gif" alt="Calendar">
+            <div class="label">TIMELINE</div>
+            <a href="timeline.html" class="item-link"></a>
+        </div>
+        
+        <!-- 梳妆台（左下角） -->
+        <div class="item dressing-table" id="dressingTable">
+            <img src="images/dressingtable.gif" alt="Dressing Table">
+            <div class="label">CSS STUDY</div>
+            <a href="cssStudy.html" class="item-link"></a>
+        </div>
+        
+        <!-- 书柜（右下角） -->
+        <div class="item bookshelf" id="bookshelf">
+            <img src="images/research.GIF" alt="Bookshelf">
+            <div class="label">RESEARCH</div>
+            <a href="research.html" class="item-link"></a>
+        </div>
+    </div>
+
+    <script src="menu.js"></script>
+    <div class="flower" style="left: 50vw; top: 50vh;"></div>
+  
+  <script src="script.js"></script>
+</body>
+</html>
+
+<!DOCTYPE html>
 <html lang="zh">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>menu</title>
+    <title>飘落的花朵</title>
     <link rel="stylesheet" href="style.css">
 </head>
-<body class="menu">
-    <h1></h1>
-    <button onclick="goToPage('timeline.html')">📅 Timeline</button>
-    <button onclick="goToPage('Library.html')">📚 Library</button>
-    <button onclick="goToPage('CSS study.html')">🎨 CSS Study</button>
-    
-    <script>
-        function goToPage(page) {
-            window.location.href = page;
-        }
-    </script>
-
+<body>
     <script src="script.js"></script>
-    
 </body>
 </html>
