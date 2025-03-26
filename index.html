@@ -1,41 +1,50 @@
 <!DOCTYPE html>
-<html lang="zh">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>home</title>
+    <title>Interactive Welcome Page</title>
     <link rel="stylesheet" href="style.css">
- 
-
-
+    <head>
+        <!-- 其他meta标签... -->
+        <style>
+          @font-face {
+            font-family: 'Milkyway DEMO';
+            src: url('fonts/MilkywayDEMO.woff2') format('woff2'),
+                 url('fonts/MilkywayDEMO.woff') format('woff');
+            font-weight: normal;
+            font-style: normal;
+            font-display: swap;
+          }
+        </style>
+        <link rel="stylesheet" href="your-styles.css">
+      </head>
+    <link href="https://fonts.googleapis.com/css2?family=Indie+Flower&family=Comic+Neue:wght@700&family=Patrick+Hand&display=swap" rel="stylesheet">
 </head>
-<body class="home">
-    <div class="enter-circle" onclick="goToMenu()"> PLEASE ENTER</div>
- 
-    <script>
-        function goToMenu() {
-            window.location.href = "menu.html";
-        }
-        
-      
-        function createFlower() {
-            const flower = document.createElement("div");
-            flower.classList.add("flower");
-            document.body.appendChild(flower);
 
+<body>
+    <div class="background"></div>
+    
+    <div class="welcome-sign">
+        <img src="images/welcomesign.PNG" alt="WELCOME" id="welcomeImg">
+    </div>
+    
+    <div class="window-container">
+        <img src="images/windowclose.PNG" alt="Window" class="window" id="window">
+        <div class="enter-button" id="enterButton">ENTER</div>
+    </div>
+    
+    <div class="cat-container">
+        <img src="images/catsleep.GIF" alt="Sleeping Cat" class="cat" id="cat">
+        <img src="images/sleepsign.GIF" alt="Zzz" class="sleep-sign" id="sleepSign">
+    </div>
 
-            flower.style.left = Math.random() * 100 + "vw";
-            flower.style.animationDuration = Math.random() * 3 + 3 + "s"; // 3~6秒随机飘落时间
-            
+    <script src="script.js"></script>
+    <div class="flower" style="left: 50vw; top: 50vh;"></div>
+  
+  <script src="script.js"></script>
 
-            setTimeout(() => {
-                flower.remove();
-            }, 6000);
-        }
-
-
-        setInterval(createFlower, 500);
-    </script>
-      <script src="script.js"></script>
+    
 </body>
 </html>
+
